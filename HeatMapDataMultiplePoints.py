@@ -53,8 +53,8 @@ def writeToCSV(hitArray):
     filename = "Search_For_Points_.csv"
     with open(filename, 'w') as csvfile:
         csvWriter = csv.writer(csvfile)
-        csvWriter.writerow(topic)
         csvWriter.writerow(header)
+        csvWriter.writerow(topic)
         csvWriter.writerows(hitArray)
 
 
