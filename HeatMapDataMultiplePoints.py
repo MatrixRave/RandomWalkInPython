@@ -12,7 +12,7 @@ rd.seed(42)
 
 
 numPart = 1
-pointToHit = numpy.array([[1, 1], [1, 2], [1, 3], [1, 4], [2, 1], [2, 2], [2, 3], [2, 4], [3, 1], [3, 2], [3, 3], [3, 4], [4, 1], [4, 2], [4, 3], [4, 4]], dtype=int)
+pointToHit = numpy.array([[0, 2], [1, 1], [1, 2], [1, 3], [1, 4], [2, 1], [2, 2], [2, 3], [2, 4], [3, 1], [3, 2], [3, 3], [3, 4], [4, 1], [4, 2], [4, 3], [4, 4]], dtype=int)
 NORTH = 1; SOUTH = 2; WEST = 3; EAST = 4
 
 
@@ -34,10 +34,11 @@ def walkTillHit(numPart=1, maxStep=5):
     positionsArray = numpy.zeros(shape=(maxStep+1, 2), dtype=int)
     count = int(pointToHit.size/2)
     hitArray = numpy.zeros(shape=(maxStep+1, count))
-    ind = 0
     for step in numpy.arange(maxStep):
         positionsArray[step+1, ] = positionsArray[step, ] + singleStep()
+        ind = 0
         while ind < count:
+            print(ind)
             if hitCheck(pointToHit[ind], positionsArray[step+1, ]):
                 hitArray[step+1, ind] = True
                 ind += 1
