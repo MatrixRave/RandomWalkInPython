@@ -48,12 +48,13 @@ def walkTillHit(numPart=1, maxStep=5):
 
 
 def writeToCSV(hitArray):
-    print(hitArray)
-    headers = ['Treffer', 'Nach Schritten']
-    filename = "Search_For_Point_4,3_.csv"
+    topic = "Suche nach folgenden Punkten:", pointToHit.tolist()
+    header = "1 means hit, 0 means no hit"
+    filename = "Search_For_Points_.csv"
     with open(filename, 'w') as csvfile:
         csvWriter = csv.writer(csvfile)
-        csvWriter.writerow(headers)
+        csvWriter.writerow(topic)
+        csvWriter.writerow(header)
         csvWriter.writerows(hitArray)
 
 
