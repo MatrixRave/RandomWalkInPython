@@ -33,7 +33,7 @@ def singleStep():
 def walkTillHit(numPart=1, maxStep=5):
     positionsArray = numpy.zeros(shape=(maxStep+1, 2), dtype=int)
     count = int(pointToHit.size/2)
-    hitArray = numpy.zeros(shape=(maxStep+1, count))
+    hitArray = numpy.zeros(shape=(maxStep+1, count+1))
     for step in numpy.arange(maxStep):
         positionsArray[step+1, ] = positionsArray[step, ] + singleStep()
         ind = 0
@@ -45,6 +45,7 @@ def walkTillHit(numPart=1, maxStep=5):
             else:
                 hitArray[step+1, ind] = False
                 ind += 1
+        hitArray[step+1, count] = step+1
     return hitArray
 
 
